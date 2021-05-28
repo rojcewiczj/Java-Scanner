@@ -3,13 +3,11 @@ package com.scanner;
 import java.util.*;
 
 public class Mathy {
-    public int firstNum;
-    public int secondNum;
+    
     public int result;
+    public boolean functioning = true;
 
     public Mathy(int _firstNum, int _secondNum, String operation){
-        firstNum = _firstNum;
-        secondNum = _secondNum;
         switch(operation){
             case "Add":
             result = (_firstNum + _secondNum);
@@ -21,10 +19,18 @@ public class Mathy {
             result = (_firstNum * _secondNum);
             break;
             case "Divide":
-            result = (_firstNum / _secondNum);
+            try { 
+                  if(_secondNum > 0){
+                  result = (_firstNum / _secondNum);
+                  }
+                  else{
+                    functioning = false;
+                  }
+            } catch (Exception e) {
+                
+            }
             break;
         }
-        System.out.println(result);
     }
 
 
